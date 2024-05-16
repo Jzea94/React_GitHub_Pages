@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import './Pointer.css'
 
 const FollowMouse = () => {
   const [enabled, setEnabled] = useState(false)
@@ -55,50 +56,61 @@ const FollowMouse = () => {
         transform: `translate(${position.x}px, ${position.y}px)`
       }}
       />
-      <button onClick={() => setEnabled(!enabled)}>
+      <button id='pointer-follow' onClick={() => setEnabled(!enabled)}>
         {enabled ? 'Desactivar' : 'Activar'} seguir puntero
       </button>
     </>
   )
 }
-// Esta logica se hizo con el fin de agregar un button para desmontar el componente
-function PointerFollow () {
-  const [montarComponente, setMontarComponente] = useState(false)
 
+
+// Esta logica se hizo con el fin de agregar un button para desmontar el componente
+function EnabledPointerFollow () {
+  const [montarComponente, setMontarComponente] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0})
+  // const [score, setScore] = useState(0)
+
+  // const pointerPosition = (event) => {
+  //   const {positionX, positionY} = event
+  // }
+  // const countScore = () => {
+  //   window.addEventListener('pointermove', pointerPosition)
+  //   position == 5 && setScore(score + 1)
+  // }
+
 
   setTimeout(() => {
-    const positionX = Math.floor(Math.random() * 500 )
-    const positionY = Math.floor(Math.random() * 500 )
-    console.log(positionX, positionY)
+    const positionX = Math.floor(Math.random() * 889) 
+    const positionY = Math.floor(Math.random() * 589)
     setPosition({ x: positionX, y: positionY})
-  }, 2000)
-
+  }, 3000)
 
   return (
-    <main
-      style={{
-      display:'grid',
-      alignItems: 'center',
-      gap: '10px'
-    }}>
-      <div
-        style={{
-        border: '1px solid #fff',
-        borderRadius: '50%',
-        width:10,
-        height: 10,
-        backgroundColor: '#fff',
-        left: `${position.x}`,
-        top: `${position.y}`
-      }} >
-      </div>
-      {montarComponente && <FollowMouse />}
-      <button onClick={() => setMontarComponente(!montarComponente)}>
-        { montarComponente ? 'Desmontar' : 'Montar'} componente
-      </button>
+    <main>
+      <section id='game-board'>
+        <div
+          id='point'
+          style={{
+          border: '1px solid #fff',
+          borderRadius: '50%',
+          position: 'relative',
+          top: position.y,
+          left: position.x,
+          width:10,
+          height: 10,
+          backgroundColor: '#fff',
+        }} >
+        </div>
+      </section>
+
+      <div id='score'>Score: {`${0}`}</div>
+
+      { montarComponente && <FollowMouse /> }
+      <button id='montar-componente' onClick={() => setMontarComponente(!montarComponente)}>
+        { montarComponente ? 'Desmontar' : 'Montar' } componente
+      </button>      
     </main>
   )
 }
 
-export default PointerFollow
+export default EnabledPointerFollow
