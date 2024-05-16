@@ -1,0 +1,32 @@
+section {
+  display: grid;
+  grid-template-areas:
+    "a a"
+    "b c";
+  gap: 15px;
+}
+
+span {
+  grid-area: a;
+}
+
+button {
+  width: 70px;
+  height: 40px;
+  border: 2px solid #f7f7f7;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #f7f7f7;
+  grid-area: b;
+
+}
+button.reset {
+  width: 70px;
+  height: 40px;
+  border: 2px solid #f7f7f7;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #f7f7f7;
+  grid-area: c;
+
+}

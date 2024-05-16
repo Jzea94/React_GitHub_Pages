@@ -1,18 +1,14 @@
 // import FollowButton from './components/Button/Button'
-import TicTacToe from './components/game/Game'
+// import TicTacToe from './components/TicTacToe/TicTacToe.jsx'
+// import TicTacToe from './components/Game/Game.jsx'
+// import ButtonComponent from './components/ButtonTest/ButtonTest.jsx'
 import './App.css'
+import FollowButton from './components/PointerMove/Pointer.jsx'
 
 function App() {
-  
-  // <FollowButton 
-  // textOne='add 🛒'
-  // textTwo='added'
-  // textTree='delete'
-  // initialState={false}/>
   return (
     <>
-    <h1>TicTacToe</h1>
-      <TicTacToe/>
+      <FollowButton/>
     </>
   )
 }
