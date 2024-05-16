@@ -62,7 +62,7 @@ const FollowMouse = () => {
   )
 }
 // Esta logica se hizo con el fin de agregar un button para desmontar el componente
-function App () {
+function PointerFollow () {
   const [montarComponente, setMontarComponente] = useState(false)
 
   const [position, setPosition] = useState({ x: 0, y: 0})
@@ -101,4 +101,4 @@ function App () {
   )
 }
 
-export default App
+export default PointerFollow
